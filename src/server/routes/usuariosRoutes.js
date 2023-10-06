@@ -37,10 +37,6 @@ router.post('/usuarios', async (req, res) => {
 });
 
 
-// Rota para obter todos os usuários (não implementada ainda)
-router.get('/usuarios', (req, res) => {
-    
-=======
 // GET All Users
 router.get('/usuarios', async (req, res) => {
     try {
