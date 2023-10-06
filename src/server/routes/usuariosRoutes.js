@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient
 
 // Post New User
 router.post('/usuarios', async (req, res) => {
@@ -33,6 +36,11 @@ router.post('/usuarios', async (req, res) => {
     }
 });
 
+
+// Rota para obter todos os usuários (não implementada ainda)
+router.get('/usuarios', (req, res) => {
+    
+=======
 // GET All Users
 router.get('/usuarios', async (req, res) => {
     try {
