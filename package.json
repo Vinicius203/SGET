@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node src/server/index.js",
+    "dev": "nodemon src/server/index.js"
+  },
   "dependencies": {
     "@prisma/client": "^5.3.1",
     "body-parser": "^1.20.2",
@@ -10,5 +14,10 @@
   "devDependencies": {
     "nodemon": "^3.0.1",
     "prisma": "^5.3.1"
+  },
+
+  "prisma": {
+    "schema": "src/server/config/prisma/schema.prisma"
   }
+
 }

@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { PrismaClient } = require('@prisma/client')
+
+const prisma = new PrismaClient
 
 // Rota para criar um novo usuário
 router.post('/usuarios', async (req, res) => {
@@ -35,7 +38,7 @@ router.post('/usuarios', async (req, res) => {
 
 // Rota para obter todos os usuários (não implementada ainda)
 router.get('/usuarios', (req, res) => {
-    // Implemente a lógica para obter todos os usuários
+    console.log('tamo ai')
 });
 
 // Rota para obter um usuário pelo ID (não implementada ainda)
