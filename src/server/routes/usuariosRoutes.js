@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Rota para criar um novo usuário
+// Post New User
 router.post('/usuarios', async (req, res) => {
     try {
         console.log('Recebida solicitação POST em /usuarios');
@@ -24,7 +24,7 @@ router.post('/usuarios', async (req, res) => {
         res.status(201).json(novoUsuario);
     } catch (error) {
         if (error.code === 'P2002' && error.meta.target.includes('matricula')) {
-            // O código 'P2002' indica uma violação de unicidade
+            // O código 'P2002' indica uma violação de duplicata de campo único
             res.status(400).json({ error: 'A matrícula já está em uso.' });
         } else {
             console.error(error);
@@ -33,10 +33,21 @@ router.post('/usuarios', async (req, res) => {
     }
 });
 
-// Rota para obter todos os usuários (não implementada ainda)
-router.get('/usuarios', (req, res) => {
-    // Implemente a lógica para obter todos os usuários
+// GET All Users
+router.get('/usuarios', async (req, res) => {
+    try {
+        console.log('Recebida solicitação GET em /usuarios');
+
+        const usuarios = await prisma.usuarios.findMany();
+
+        // Retorna um JSON
+        res.status(200).json(usuarios);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Erro ao obter os usuários' });
+    }
 });
+
 
 // Rota para obter um usuário pelo ID (não implementada ainda)
 router.get('/usuarios/:id', (req, res) => {
