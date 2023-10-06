@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotinas</title>
+    <script src="https://kit.fontawesome.com/d69bdb51de.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/rotinas.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <i class="fa-solid fa-bars fa-xl" id="showSidebar" style="color: #000000;"></i>
+        <div class="navbar-links hidden">
+            <a href="#">Main Page</a>
+            <a href="#">Cadastro de Templates</a>
+            <a href="#">Permissões de Usuários</a>
+            <a href="#">Visualização de Rotinas</a>
+            <a href="#">Dashboard</a>
+            <i class="fa-solid fa-copyright" style="color: #000000;"></i>
+        </div>
+    </div>
+
+    <div class="header">
+        <img src="../images/generic_logo.png">
+        <i class="fa-solid fa-user fa-xl" style="color: #000000;"></i>
+    </div>
+
+    <div class="container">
+        <h1>Rotinas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Templates</th>
+                    <th>Criador</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nome do Template 1</td>
+                    <td>Nome do Criador 1<button type="button" class="info-button">Informações</button></td>
+                    <td>
+                        <label class="toggle-switch-label">
+                            <input type="checkbox" class="toggle-switch-checkbox">
+                            <span class="toggle-switch-slider"></span>
+                        </label>
+                        <button type="button" class="action-button" disabled>Download</button>
+                        <button type="button" class="action-button upload-button" disabled>Upload</button>
+                        <div id="uploadPopup" class="popup">
+                            <div class="popup-content">
+                                <span class="close" id="closeUploadPopup">&times;</span>
+                                <h2>Upload de Arquivo</h2>
+                                <input type="file" id="fileInput" accept=".xlsx, .xls, .csv">
+                                <textarea id="commentInput" placeholder="Adicione um comentário (opcional)"></textarea>
+                                <button id="uploadSubmitButton">Enviar</button>
+                            </div>
+                        </div>
+                        <button type="button">Informações</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nome do Template 2</td>
+                    <td>Nome do Criador 2<button type="button" class="info-button">Informações</button></td>
+                    <td>
+                        <label class="toggle-switch-label">
+                            <input type="checkbox" class="toggle-switch-checkbox">
+                            <span class="toggle-switch-slider"></span>
+                        </label>
+                        <button type="button" class="action-button" disabled>Download</button>
+                        <button type="button" class="action-button upload-button" disabled>Upload</button>
+                        <div id="uploadPopup" class="popup">
+                            <div class="popup-content">
+                                <span class="close" id="closeUploadPopup">&times;</span>
+                                <h2>Upload de Arquivo</h2>
+                                <input type="file" id="fileInput" accept=".xlsx, .xls, .csv">
+                                <textarea id="commentInput" placeholder="Adicione um comentário (opcional)"></textarea>
+                                <button id="uploadSubmitButton">Enviar</button>
+                            </div>
+                        </div>
+                        <button type="button">Informações</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nome do Template 3</td>
+                    <td>Nome do Criador 3<button type="button" class="info-button">Informações</button></td>
+                    <td>
+                        <label class="toggle-switch-label">
+                            <input type="checkbox" class="toggle-switch-checkbox">
+                            <span class="toggle-switch-slider"></span>
+                        </label>
+                        <button type="button" class="action-button" disabled>Download</button>
+                        <button type="button" class="action-button upload-button" disabled>Upload</button>
+                        <div id="uploadPopup" class="popup">
+                            <div class="popup-content">
+                                <span class="close" id="closeUploadPopup">&times;</span>
+                                <h2>Upload de Arquivo</h2>
+                                <input type="file" id="fileInput" accept=".xlsx, .xls, .csv">
+                                <textarea id="commentInput" placeholder="Adicione um comentário (opcional)"></textarea>
+                                <button id="uploadSubmitButton">Enviar</button>
+                            </div>
+                        </div>
+                        <button type="button">Informações</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nome do Template 4</td>
+                    <td>Nome do Criador 4<button type="button" class="info-button">Informações</button></td>
+                    <td>
+                        <label class="toggle-switch-label">
+                            <input type="checkbox" class="toggle-switch-checkbox">
+                            <span class="toggle-switch-slider"></span>
+                        </label>
+                        <button type="button" class="action-button" disabled>Download</button>
+                        <button type="button" class="action-button upload-button" disabled>Upload</button>
+                        <div id="uploadPopup" class="popup">
+                            <div class="popup-content">
+                                <span class="close" id="closeUploadPopup">&times;</span>
+                                <h2>Upload de Arquivo</h2>
+                                <input type="file" id="fileInput" accept=".xlsx, .xls, .csv">
+                                <textarea id="commentInput" placeholder="Adicione um comentário (opcional)"></textarea>
+                                <button id="uploadSubmitButton">Enviar</button>
+                            </div>
+                        </div>
+                        <button type="button">Informações</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../js/rotinas.js"></script>
+</body>
+
+</html>

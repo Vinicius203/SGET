@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model campos {
+  idcampo         Int               @id @default(autoincrement())
+  nomecampo       String            @db.VarChar(100)
+  permitenulo     Boolean
+  tipodado        tipodado
+  campostemplates campostemplates[]
+}
+
+model campostemplates {
+  idcampo    Int
+  idtemplate Int
+  campos     campos    @relation(fields: [idcampo], references: [idcampo], onDelete: NoAction, onUpdate: NoAction)
+  templates  templates @relation(fields: [idtemplate], references: [idtemplate], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([idcampo, idtemplate], map: "campo_template_pkey")
+}
+
+model templates {
+  idtemplate       Int               @id @default(autoincrement())
+  nometemplate     String            @db.VarChar(100)
+  extensaotemplate extensaotemplate
+  data_criacao     DateTime          @db.Timestamp(6)
+  statustemplate   Boolean
+  qtd_colunas      Int
+  idusuario        Int
+  campostemplates  campostemplates[]
+  usuarios         usuarios          @relation(fields: [idusuario], references: [idusuario], onDelete: NoAction, onUpdate: NoAction)
+  uploads          uploads[]
+}
+
+model uploads {
+  idupload          Int       @id @default(autoincrement())
+  nomeupload        String    @db.VarChar(100)
+  caminhosalvamento String?   @db.VarChar(255)
+  data_upload       DateTime  @db.Timestamp(6)
+  idtemplate        Int
+  idusuario         Int
+  templates         templates @relation(fields: [idtemplate], references: [idtemplate], onDelete: NoAction, onUpdate: NoAction)
+  usuarios          usuarios  @relation(fields: [idusuario], references: [idusuario], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model usuarios {
+  idusuario     Int          @id @default(autoincrement())
+  nome_completo String       @db.VarChar(100)
+  perfilacesso  perfilacesso
+  matricula     String       @unique @db.VarChar(45)
+  email         String       @db.VarChar(100)
+  senha         String       @db.VarChar(45)
+  squad         String       @db.VarChar(45)
+  cargo         String       @db.VarChar(45)
+  templates     templates[]
+  uploads       uploads[]
+}
+
+enum extensaotemplate {
+  CSV
+  XLS
+  XLSX
+}
+
+enum perfilacesso {
+  Cadastro
+  Administrador
+}
+
+enum tipodado {
+  Integer
+  Double
+  Date
+  Timestamp
+  Booleano
+  String
+}
