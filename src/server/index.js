@@ -4,7 +4,7 @@ const { PrismaClient } = require('@prisma/client');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware para registrar solicitações recebidas
+// Middleware
 app.use((req, res, next) => {
     console.log(`Recebida a solicitação ${req.method} em ${req.path}`);
     next();
@@ -14,13 +14,14 @@ app.use(express.json());
 
 const prisma = new PrismaClient();
 
-// Importar as rotas de usuários
-const usuariosRoutes = require('../server/routes/usuariosRoutes');
-
-// Usar as rotas de usuários com o prefixo "/usuarios"
+// Caminho da rota de Usuários
+const usuariosRoutes = require('C:\\Users\\980197\\Desktop\\SGET\\src\\server\\routes\\usuariosRoutes');
 app.use('/usuarios', usuariosRoutes);
 
-// Rota para a raiz ("/")
+const templatesRoutes = require('C:\\Users\\980197\\Desktop\\SGET\\src\\server\\routes\\templatesRoutes');
+app.use('/templates', templatesRoutes);
+
+// Raiz
 app.get('/', (req, res) => {
     res.send('Bem-vindo à página inicial');
 });
