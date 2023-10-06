@@ -49,17 +49,17 @@ router.get('/usuarios', async (req, res) => {
 });
 
 
-// Rota para obter um usuário pelo ID (não implementada ainda)
+// Rota para obter um usuário pelo ID
 router.get('/usuarios/:id', (req, res) => {
     // Implemente a lógica para obter um usuário pelo ID
 });
 
-// Rota para atualizar um usuário pelo ID (não implementada ainda)
+// Rota para atualizar um usuário pelo ID
 router.put('/usuarios/:id', (req, res) => {
     // Implemente a lógica para atualizar um usuário pelo ID
 });
 
-// Rota para excluir um usuário pelo ID (não implementada ainda)
+// Rota para excluir um usuário pelo ID
 router.delete('/usuarios/:id', (req, res) => {
     // Implemente a lógica para excluir um usuário pelo ID
 });

@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use((req, res, next) => {
-    console.log(`Recebida aa solicitação ${req.method} em ${req.path}`);
+    console.log(`Recebida (index) solicitação ${req.method} em ${req.path}`);
     next();
 });
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Post New User
+// Post New Template
 router.post('/templates', async (req, res) => {
     try {
         console.log('Recebida solicitação POST em /templates');
