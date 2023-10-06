@@ -15,9 +15,7 @@
     "nodemon": "^3.0.1",
     "prisma": "^5.3.1"
   },
-
   "prisma": {
     "schema": "src/server/config/prisma/schema.prisma"
   }
-
 }
