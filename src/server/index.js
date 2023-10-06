@@ -13,8 +13,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-const prisma = new PrismaClient();
-
 // Caminho da rota de Usuários
 const usuariosRoutes = require('C:\\Users\\980197\\Desktop\\SGET\\src\\server\\routes\\usuariosRoutes');
 app.use('/usuarios', usuariosRoutes);
