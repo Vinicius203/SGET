@@ -55,7 +55,7 @@ router.get('/consultarUsuarios', async (req, res) => {
 });
 
 
-// Consultar usuário pelo ID
+// Consultar o Usuário pelo ID
 router.get('/consultarUsuarios/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -113,7 +113,7 @@ router.patch('/atualizarUsuarios/:id', async (req, res) => {
     }
 });
 
-// Atualizar SENHA do Usuário pelo ID
+// Atualizar a SENHA do Usuário pelo ID
 router.put('/alterarSenha/:id', async (req, res) => {
     try {
         const { id } = req.params;
@@ -145,7 +145,7 @@ router.put('/alterarSenha/:id', async (req, res) => {
 });
 
 
-// Excluir Usuário pelo ID
+// Excluir o Usuário pelo ID
 router.delete('/deletarUsuarios/:id', async (req, res) => {
     try {
         const { id } = req.params;
