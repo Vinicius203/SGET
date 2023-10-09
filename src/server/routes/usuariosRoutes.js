@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client')
 
+const prisma = new PrismaClient
+
 // Acesse a propriedade 'originalUrl' para obter a rota tentada
 // const rotaAcessada = req.originalUrl;
 
 // Log da rota (pode ser útil para depuração)
 // console.log(`Rota acessada: ${rotaAcessada}`);
-
-const prisma = new PrismaClient
 
 // Criar novo Usuário
 router.post('/criarUsuarios', async (req, res) => {
