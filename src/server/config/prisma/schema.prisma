@@ -53,7 +53,7 @@ model usuarios {
   nome_completo String       @db.VarChar(100)
   perfilacesso  perfilacesso
   matricula     String       @unique @db.VarChar(45)
-  email         String       @db.VarChar(100)
+  email         String       @unique @db.VarChar(100)
   senha         String       @db.VarChar(45)
   squad         String       @db.VarChar(45)
   cargo         String       @db.VarChar(45)

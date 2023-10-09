@@ -2,10 +2,16 @@ const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client')
 
+// Acesse a propriedade 'originalUrl' para obter a rota tentada
+// const rotaAcessada = req.originalUrl;
+
+// Log da rota (pode ser útil para depuração)
+// console.log(`Rota acessada: ${rotaAcessada}`);
+
 const prisma = new PrismaClient
 
 // Post New User
-router.post('/usuarios', async (req, res) => {
+router.post('/criarUsuarios', async (req, res) => {
     try {
         console.log('Recebida solicitação POST em /usuarios');
 
@@ -38,7 +44,7 @@ router.post('/usuarios', async (req, res) => {
 
 
 // GET All Users
-router.get('/usuarios', async (req, res) => {
+router.get('/consultarUsuarios', async (req, res) => {
     try {
         console.log('Recebida solicitação GET em /usuarios');
 

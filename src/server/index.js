@@ -1,6 +1,5 @@
 const express = require('express');
 require('dotenv').config();
-const { PrismaClient } = require('@prisma/client');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,10 +13,11 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 // Caminho da rota de Usuários
-const usuariosRoutes = require('C:\\Users\\980197\\Desktop\\SGET\\src\\server\\routes\\usuariosRoutes');
+const usuariosRoutes = require('./routes/usuariosRoutes');
 app.use('/usuarios', usuariosRoutes);
 
-const templatesRoutes = require('C:\\Users\\980197\\Desktop\\SGET\\src\\server\\routes\\templatesRoutes');
+// Caminho da rota de Templates
+const templatesRoutes = require('./routes/templatesRoutes');
 app.use('/templates', templatesRoutes);
 
 // Raiz

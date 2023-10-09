@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node src/server/index.js",
-    "dev": "nodemon src/server/index.js"
+    "dev": "nodemon src/server/index.js -w"
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
