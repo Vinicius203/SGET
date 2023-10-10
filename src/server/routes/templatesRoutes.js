@@ -15,9 +15,9 @@ router.post('/criarTemplates', async (req, res) => {
     try {
         console.log('Recebida solicitação POST em /templates');
 
-        const templates = req.body; // Obtenha um array de objetos de usuário do corpo da solicitação
+        const templates = req.body; // Obtenha um array de objetos de template do corpo da solicitação
 
-        // Tente criar os usuários no banco de dados usando o método createMany
+        // Tente criar os templates no banco de dados usando o método createMany
         const novosTemplates = await prisma.templates.createMany({
             data: templates,
         });
@@ -73,7 +73,7 @@ router.patch('/atualizarTemplates/:id', async (req, res) => {
         const { id } = req.params;
         const { nometemplate, extensaotemplate, data_criacao, statustemplate, qtd_colunas, idusuario } = req.body;
 
-        // Tente atualizar o usuário no banco de dados
+        // Tente atualizar o template no banco de dados
         const templateAtualizado = await prisma.templates.update({
             where: {
                 idtemplate: parseInt(id) // Certifique-se de converter o parâmetro de ID para um número inteiro
@@ -88,7 +88,7 @@ router.patch('/atualizarTemplates/:id', async (req, res) => {
             },
         });
 
-        // Verifique se o usuário foi encontrado e atualizado
+        // Verifique se o template foi encontrado e atualizado
         if (!templateAtualizado) {
             return res.status(404).json({ error: 'Template não encontrado' });
         }
