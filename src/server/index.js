@@ -20,6 +20,15 @@ app.use('/usuarios', usuariosRoutes);
 const templatesRoutes = require('./routes/templatesRoutes');
 app.use('/templates', templatesRoutes);
 
+// Caminho da rota de Campos
+const camposRoutes = require('./routes/camposRoutes');
+app.use('/campos', camposRoutes);
+
+// Caminho da rota de Uploads
+const uploadsRoutes = require('./routes/uploadsRoutes');
+app.use('/uploads', uploadsRoutes);
+
+
 // Raiz
 app.get('/', (req, res) => {
     res.send('Bem-vindo à página inicial');
