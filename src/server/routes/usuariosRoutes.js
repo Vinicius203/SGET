@@ -85,7 +85,7 @@ router.patch('/atualizarUsuarios/:id', async (req, res) => {
         const { id } = req.params;
         const { nome_completo, perfilacesso, matricula, email, senha, squad, cargo } = req.body;
 
-        // Tente atualizar o usuário no banco de dados
+        // Tenta atualizar o usuário no banco de dados
         const usuarioAtualizado = await prisma.usuarios.update({
             where: {
                 idusuario: parseInt(id) // Certifique-se de converter o parâmetro de ID para um número inteiro
