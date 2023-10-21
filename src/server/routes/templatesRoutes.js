@@ -1,125 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const { PrismaClient } = require('@prisma/client')
-
-const prisma = new PrismaClient
-
-// Acesse a propriedade 'originalUrl' para obter a rota tentada
-// const rotaAcessada = req.originalUrl;
-
-// Log da rota (pode ser útil para depuração)
-// console.log(`Rota acessada: ${rotaAcessada}`);
+const templatesController = require('../controllers/templatesController');
 
 // Criar novo Template
-router.post('/criarTemplates', async (req, res) => {
-    try {
-        console.log('Recebida solicitação POST em /templates');
-
-        const templates = req.body; // Obtenha um array de objetos de template do corpo da solicitação
-
-        // Tente criar os templates no banco de dados usando o método createMany
-        const novosTemplates = await prisma.templates.createMany({
-            data: templates,
-        });
-
-        res.status(201).json(novosTemplates);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao criar os templates' });
-    }
-});
+router.post('/criarTemplates', templatesController.criarTemplates);
 
 // GET All Templates
-router.get('/consultarTemplates', async (req, res) => {
-    try {
-        console.log('Recebida solicitação GET em /templates');
-
-        const templates = await prisma.templates.findMany();
-
-        // Retorna um JSON
-        res.status(200).json(templates);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao obter os templates' });
-    }
-});
+router.get('/consultarTemplates', templatesController.consultarTemplates);
 
 // Consultar o Template pelo ID
-router.get('/consultarTemplates/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const template = await prisma.templates.findUnique({
-            where: {
-                idtemplate: parseInt(id) // Certifique-se de converter o parâmetro de ID para um número inteiro
-            }
-        });
-
-        // Verifique se o usuário foi encontrado
-        if (!template) {
-            return res.status(404).json({ error: 'Template não encontrado' });
-        }
-
-        res.status(200).json(template);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao buscar o template' });
-    }
-});
+router.get('/consultarTemplates/:id', templatesController.consultarTemplatesPorId);
 
 // Atualizar o Template pelo ID
-router.patch('/atualizarTemplates/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { nometemplate, extensaotemplate, data_criacao, statustemplate, qtd_colunas, idusuario } = req.body;
-
-        // Tente atualizar o template no banco de dados
-        const templateAtualizado = await prisma.templates.update({
-            where: {
-                idtemplate: parseInt(id) // Certifique-se de converter o parâmetro de ID para um número inteiro
-            },
-            data: {
-                nometemplate,
-                extensaotemplate,
-                data_criacao,
-                statustemplate,
-                qtd_colunas,
-                idusuario
-            },
-        });
-
-        // Verifique se o template foi encontrado e atualizado
-        if (!templateAtualizado) {
-            return res.status(404).json({ error: 'Template não encontrado' });
-        }
-
-        res.status(200).json(templateAtualizado);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao atualizar o template' });
-    }
-});
+router.patch('/atualizarTemplates/:id', templatesController.atualizarTemplates);
 
 // Excluir o Template pelo ID
-router.delete('/deletarTemplates/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const templateExcluido = await prisma.templates.delete({
-            where: {
-                idtemplate: parseInt(id) // Certifique-se de converter o parâmetro de ID para um número inteiro
-            },
-        });
-
-        if (!templateExcluido) {
-            return res.status(404).json({ error: 'Template não encontrado' });
-        }
-
-        res.status(200).json({ message: 'Template excluído com sucesso' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao excluir o template' });
-    }
-});
+router.delete('/deletarTemplates/:id', templatesController.deletarTemplates);
 
 module.exports = router;

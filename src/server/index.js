@@ -28,6 +28,10 @@ app.use('/campos', camposRoutes);
 const uploadsRoutes = require('./routes/uploadsRoutes');
 app.use('/uploads', uploadsRoutes);
 
+// Caminho da rota de CamposTemplates
+const camposTemplatesRoutes = require('./routes/camposTemplatesRoutes');
+app.use('/camposTemplates', camposTemplatesRoutes);
+
 
 // Raiz
 app.get('/', (req, res) => {

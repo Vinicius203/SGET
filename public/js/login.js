@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loginButton.addEventListener('click', function (event) {
         event.preventDefault();
 
-        window.location.href = '../mainPage/mainPage.html';
+        window.location.href = '../html/mainPage.html';
     });
 
     forgotPasswordLink.addEventListener('click', function (event) {
