@@ -136,7 +136,7 @@ body {
     display: none;
     flex-direction: column;
     align-items: flex-start;
-    width: 98.4%;
+    width: 80%;
     background-color: #ccc;
     padding: 10px;
     border-radius: 5px;
@@ -188,4 +188,14 @@ body {
     height: auto;
     padding: 10px;
     background-color: #f2f2f2;
+}
+
+/* Columns Wrappers */
+
+.column__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 2px;
 }
